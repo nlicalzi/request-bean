@@ -8,7 +8,7 @@ class Bin < ApplicationRecord
 
   private
 
-  def generate_url
-    self.url = SecureRandom.hex 4
-  end
+    def generate_url
+      self.url = SecureRandom.hex 4
+    end
 end
