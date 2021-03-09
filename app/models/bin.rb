@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Bin < ApplicationRecord
   before_create :generate_url
   validates :name, length: { in: 3..50 }

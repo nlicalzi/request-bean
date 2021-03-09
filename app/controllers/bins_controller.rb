@@ -8,6 +8,7 @@ class BinsController < ApplicationController
 
   # GET /bins/1 or /bins/1.json
   def show
+    pp @bin
     @requests = @bin.requests
   end
 
@@ -60,7 +61,7 @@ class BinsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bin
-      @bin = Bin.find(params[:id])
+      @bin = Bin.find_by(url: params[:id])
     end
 
     # Only allow a list of trusted parameters through.
