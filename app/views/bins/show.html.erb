@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bin.name %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @bin.url %>
+  <br />
+  <tbody>
+    <% @requests.each do |request| %>
+      <tr>
+        <td><%= request.created_at %></td>
+        <td><%= link_to 'Show', request %></td>
+        <td><%= link_to 'Edit', edit_request_path(request) %></td>
+        <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</p>
+
+<%= link_to 'Edit', edit_bin_path(@bin) %> |
+<%= link_to 'Back', bins_path %>
