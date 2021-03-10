@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class BinsController < ApplicationController
-  before_action :set_bin, only: %i[ show edit update destroy ]
+  before_action :set_bin, only: %i[show edit update destroy]
 
   # GET /bins or /bins.json
   def index
@@ -18,8 +20,7 @@ class BinsController < ApplicationController
   end
 
   # GET /bins/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /bins or /bins.json
   def create
@@ -27,7 +28,9 @@ class BinsController < ApplicationController
 
     respond_to do |format|
       if @bin.save
-        format.html { redirect_to @bin, notice: "Bin was successfully created." }
+        format.html do
+          redirect_to @bin, notice: 'Bin was successfully created.'
+        end
         format.json { render :show, status: :created, location: @bin }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +43,9 @@ class BinsController < ApplicationController
   def update
     respond_to do |format|
       if @bin.update(bin_params)
-        format.html { redirect_to @bin, notice: "Bin was successfully updated." }
+        format.html do
+          redirect_to @bin, notice: 'Bin was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @bin }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,12 +58,15 @@ class BinsController < ApplicationController
   def destroy
     @bin.destroy
     respond_to do |format|
-      format.html { redirect_to bins_url, notice: "Bin was successfully destroyed." }
+      format.html do
+        redirect_to bins_url, notice: 'Bin was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_bin
       @bin = Bin.find_by(url: params[:id])

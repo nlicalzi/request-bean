@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 class RequestsController < ApplicationController
-  before_action :set_request, only: %i[ show edit update destroy ]
+  before_action :set_request, only: %i[show edit update destroy]
 
   # GET /requests/1 or /requests/1.json
-  def show
-  end
+  def show; end
 
   # POST /requests or /requests.json
   def create
@@ -11,11 +12,15 @@ class RequestsController < ApplicationController
 
     respond_to do |format|
       if @request.save
-        format.html { redirect_to @request, notice: "Request was successfully created." }
+        format.html do
+          redirect_to @request, notice: 'Request was successfully created.'
+        end
         format.json { render :show, status: :created, location: @request }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @request.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @request.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -24,12 +29,15 @@ class RequestsController < ApplicationController
   def destroy
     @request.destroy
     respond_to do |format|
-      format.html { redirect_to requests_url, notice: "Request was successfully destroyed." }
+      format.html do
+        redirect_to requests_url, notice: 'Request was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_request
       @request = Request.find(params[:id])

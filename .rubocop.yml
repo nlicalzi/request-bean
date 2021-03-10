@@ -9,15 +9,8 @@ AllCops:
   NewCops: enable
 
   Include:
-    - "config.ru"
-    - "Gemfile"
-    - "Guardfile"
-    - "Rakefile"
     - "app/**/*.rb"
-    - "config/**/*.rb"
-    - "lib/**/*.rb"
     - "spec/**/*.rb"
-    - "db/seeds.rb"
 
   Exclude:
     - "bin/*"
@@ -37,6 +30,9 @@ Layout/IndentationConsistency:
 
 Layout/LineLength:
   Max: 80
+
+Metrics/MethodLength:
+  Max: 15
 
 Metrics/BlockLength:
   Exclude:
