@@ -29,7 +29,7 @@ class BinsController < ApplicationController
     respond_to do |format|
       if @bin.save
         format.html do
-          redirect_to @bin, notice: 'Bin was successfully created.'
+          redirect_to "/bins/#{@bin.url}", notice: 'Bin was successfully created.'
         end
         format.json { render :show, status: :created, location: @bin }
       else
