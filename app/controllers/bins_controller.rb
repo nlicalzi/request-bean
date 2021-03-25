@@ -45,7 +45,8 @@ class BinsController < ApplicationController
     respond_to do |format|
       if @bin.update(bin_params)
         format.html do
-          redirect_to @bin, notice: 'Bin was successfully updated.'
+          redirect_to "/bins/#{@bin.url}",
+                      notice: 'Bin was successfully updated.'
         end
         format.json { render :show, status: :ok, location: @bin }
       else
@@ -75,6 +76,6 @@ class BinsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def bin_params
-      params.require(:bin).permit(:name, :url)
+      params.require(:bin).permit(:name, :webhook_url)
     end
 end

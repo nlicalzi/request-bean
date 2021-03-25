@@ -1,4 +1,4 @@
-<%= form_with(model: bin, local: true) do |form| %>
+<%= form_with(model: @bin, url: "/bins/#{@bin.url}", local: true) do |form| %>
   <% if bin.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(bin.errors.count, "error") %> prohibited this bin from being saved:</h2>
@@ -14,6 +14,11 @@
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :webhook_url %>
+    <%= form.text_field :webhook_url %>
   </div>
 
   <div class="actions">

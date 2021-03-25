@@ -19,8 +19,8 @@
       <td><%= bin.name %></td>
       <td><%= bin.url %></td>
       <td><%= link_to 'Show', "/bins/#{bin.url}" %></td>
-      <td><%= link_to 'Edit', edit_bin_path(bin) %></td>
-      <td><%= link_to 'Destroy', bin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Edit', "/bins/#{bin.url}/edit" %></td>
+      <td><%= link_to 'Destroy', "/bins/#{bin.url}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
     <% end %>
   </tbody>
