@@ -6,7 +6,7 @@
 
 <h1>Request Bean Login</h1>
 
-<%= form_with url: '/login' do |f| %>
+<%= form_with url: '/login', local: true do |f| %>
 <div class="my-4">
   <%= f.label :email, "Email" %>
   <%= f.text_field :email %>

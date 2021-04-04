@@ -8,10 +8,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def show
-    @bins = @user.bins
-  end
-
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
@@ -19,7 +15,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         format.html do
-          redirect_to @user, notice: 'User was successfully created.'
+          redirect_to '/login', notice: 'User was successfully created.'
         end
         format.json { render :show, status: :created, location: @user }
       else
