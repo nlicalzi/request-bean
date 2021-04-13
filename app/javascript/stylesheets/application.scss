@@ -37,3 +37,11 @@
 .mb-2 {
   margin: 0 0 15px 0;
 }
+
+.hidden {
+  display: none;
+}
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
