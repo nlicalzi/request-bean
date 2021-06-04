@@ -5,7 +5,7 @@ Open source application that enables you to collect, parse, and view HTTP reques
 # Installation
 
 ```sh
-git clone https://github.com/awcrotwell/request-bean
+git clone https://github.com/nlicalzi/request-bean
 cd request-bean
 
 bundle install
